@@ -6,14 +6,17 @@ public class Curso {
     private int codCurso;
     private ProfTitulares profTitulares;
     private ProfAdjuntos profAdjuntos;
+    private Aluno aluno;
     private List<Aluno> listaAlunos;
+    private int quantidadeAlunos = 20;
 
-    public Curso(String nomeCurso, int codCurso, ProfTitulares profTitulares, ProfAdjuntos profAdjuntos, List<Aluno> listaAlunos) {
+    public Curso(String nomeCurso, int codCurso, ProfTitulares profTitulares, ProfAdjuntos profAdjuntos, List<Aluno> listaAlunos, int quantidadeAlunos) {
         this.nomeCurso = nomeCurso;
         this.codCurso = codCurso;
         this.profTitulares = profTitulares;
         this.profAdjuntos = profAdjuntos;
         this.listaAlunos = listaAlunos;
+        this.quantidadeAlunos = quantidadeAlunos;
     }
 
     public String getNomeCurso() {
@@ -56,6 +59,14 @@ public class Curso {
         this.listaAlunos = listaAlunos;
     }
 
+    public int getQuantidadeAlunos() {
+        return quantidadeAlunos;
+    }
+
+    public void setQuantidadeAlunos(int quantidadeAlunos) {
+        this.quantidadeAlunos = quantidadeAlunos;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -67,6 +78,14 @@ public class Curso {
     @Override
     public int hashCode() {
         return Objects.hash(codCurso);
+    }
+
+    public Boolean adicionarUmAluno(Aluno umAluno){
+        Aluno.add(umAluno)
+    }
+
+    public void excluirAluno(Aluno umAluno){
+
     }
 }
 
