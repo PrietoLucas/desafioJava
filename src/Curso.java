@@ -1,12 +1,19 @@
+import java.util.List;
 import java.util.Objects;
 
 public class Curso {
     private String nomeCurso;
     private int codCurso;
+    private ProfTitulares profTitulares;
+    private ProfAdjuntos profAdjuntos;
+    private List<Aluno> listaAlunos;
 
-    public Curso(String nomeCurso, int codCurso) {
+    public Curso(String nomeCurso, int codCurso, ProfTitulares profTitulares, ProfAdjuntos profAdjuntos, List<Aluno> listaAlunos) {
         this.nomeCurso = nomeCurso;
         this.codCurso = codCurso;
+        this.profTitulares = profTitulares;
+        this.profAdjuntos = profAdjuntos;
+        this.listaAlunos = listaAlunos;
     }
 
     public String getNomeCurso() {
@@ -25,17 +32,41 @@ public class Curso {
         this.codCurso = codCurso;
     }
 
+    public ProfTitulares getProfTitulares() {
+        return profTitulares;
+    }
+
+    public void setProfTitulares(ProfTitulares profTitulares) {
+        this.profTitulares = profTitulares;
+    }
+
+    public ProfAdjuntos getProfAdjuntos() {
+        return profAdjuntos;
+    }
+
+    public void setProfAdjuntos(ProfAdjuntos profAdjuntos) {
+        this.profAdjuntos = profAdjuntos;
+    }
+
+    public List<Aluno> getListaAlunos() {
+        return listaAlunos;
+    }
+
+    public void setListaAlunos(List<Aluno> listaAlunos) {
+        this.listaAlunos = listaAlunos;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Curso curso = (Curso) o;
-        return codCurso == curso.codCurso &&
-                Objects.equals(nomeCurso, curso.nomeCurso);
+        return codCurso == curso.codCurso;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nomeCurso, codCurso);
+        return Objects.hash(codCurso);
     }
 }
+

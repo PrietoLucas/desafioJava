@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Professores {
+public abstract class Professores {
     private String nomeProf;
     private String sobrenomeP;
     private int tempoCasa;
@@ -50,14 +50,11 @@ public class Professores {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Professores that = (Professores) o;
-        return tempoCasa == that.tempoCasa &&
-                codProfessor == that.codProfessor &&
-                Objects.equals(nomeProf, that.nomeProf) &&
-                Objects.equals(sobrenomeP, that.sobrenomeP);
+        return codProfessor == that.codProfessor;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nomeProf, sobrenomeP, tempoCasa, codProfessor);
+        return Objects.hash(codProfessor);
     }
 }

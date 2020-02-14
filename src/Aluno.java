@@ -16,13 +16,11 @@ public class Aluno {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Aluno aluno = (Aluno) o;
-        return codAluno == aluno.codAluno &&
-                Objects.equals(nome, aluno.nome) &&
-                Objects.equals(sobrenome, aluno.sobrenome);
+        return codAluno == aluno.codAluno;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, sobrenome, codAluno);
+        return Objects.hash(codAluno);
     }
 }
