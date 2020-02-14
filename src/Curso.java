@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -7,8 +8,8 @@ public class Curso {
     private ProfTitulares profTitulares;
     private ProfAdjuntos profAdjuntos;
     private Aluno aluno;
-    private List<Aluno> listaAlunos;
-    private int quantidadeAlunos = 20;
+    private List<Aluno> listaAlunos = new ArrayList<>();
+    private int quantidadeAlunos;
 
     public Curso(String nomeCurso, int codCurso, ProfTitulares profTitulares, ProfAdjuntos profAdjuntos, List<Aluno> listaAlunos, int quantidadeAlunos) {
         this.nomeCurso = nomeCurso;
@@ -16,6 +17,12 @@ public class Curso {
         this.profTitulares = profTitulares;
         this.profAdjuntos = profAdjuntos;
         this.listaAlunos = listaAlunos;
+        this.quantidadeAlunos = quantidadeAlunos;
+    }
+
+    public Curso(String nomeCurso, int codCurso, int quantidadeAlunos) {
+        this.nomeCurso = nomeCurso;
+        this.codCurso = codCurso;
         this.quantidadeAlunos = quantidadeAlunos;
     }
 
@@ -80,12 +87,18 @@ public class Curso {
         return Objects.hash(codCurso);
     }
 
-    public Boolean adicionarUmAluno(Aluno umAluno){
-        Aluno.add(umAluno)
+    public boolean adicionarUmAluno(Aluno umAluno){
+        if (listaAlunos.size() <= quantidadeAlunos) {
+            listaAlunos.add(umAluno);
+            return true;
+        } else {
+            System.out.println("Não há limite na turma!");
+            return false;
+        }
     }
 
     public void excluirAluno(Aluno umAluno){
-
+        listaAlunos.remove(umAluno);
     }
 }
 
