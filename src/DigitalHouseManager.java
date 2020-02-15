@@ -3,8 +3,8 @@ import java.util.List;
 
 public class DigitalHouseManager {
     private List<Curso> listaCurso = new ArrayList<>();
-    private List<ProfAdjuntos> listaAdjuntos = new ArrayList<>();
-    private List<ProfTitulares> lisaTitulares = new ArrayList<>();
+    private List<Professores> listaProf = new ArrayList<>();
+    private List<Aluno> listaAluno = new ArrayList<>();
 
     public void registrarCurso(String nome, Integer codigoCurso, Integer quantidadeMaxima){
         Curso curso = new Curso(nome, codigoCurso, quantidadeMaxima);
@@ -20,18 +20,28 @@ public class DigitalHouseManager {
 
     public void registrarProfessorAdjunto(String nome, String sobrenome, Integer codigoProfessor, Integer quantidadeDeHoras){
         ProfAdjuntos profAdjuntos = new ProfAdjuntos(nome, sobrenome, codigoProfessor, quantidadeDeHoras);
-        listaAdjuntos.add(profAdjuntos);
+        listaProf.add(profAdjuntos);
         System.out.println(profAdjuntos);
     }
 
     public void registrarProfessorTitular(String nome, String sobrenome,Integer tempoCasa, Integer codigoProfessor, String especialidade){
         ProfTitulares profTitulares = new ProfTitulares(nome,sobrenome,tempoCasa,codigoProfessor,especialidade);
-        lisaTitulares.add(profTitulares);
+        listaProf.add(profTitulares);
         System.out.println(profTitulares);
     }
 
-    public void excluirProfessor(Integer codigoProfessor){
+    public void excluirProfessor(Integer codProfessor){
+        listaProf.removeIf(codigo -> codigo.getCodProfessor() == codProfessor);
+    }
 
+    public void matricularAluno(String nome, String sobrenome,Integer codAluno){
+        Aluno aluno = new Aluno(nome,sobrenome,codAluno);
+        listaAluno.add(aluno);
+        System.out.println(aluno);
+    }
+
+    public void matricularAluno(Integer codAluno, Integer codCurso){
+        Matricula matricula = new Matricula(codAluno,codCurso);
     }
 
 }

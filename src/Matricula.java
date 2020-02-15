@@ -1,3 +1,4 @@
+
 import java.util.Date;
 
 public class Matricula {
@@ -9,5 +10,33 @@ public class Matricula {
         this.aluno = aluno;
         this.curso = curso;
         this.dataMatricula = new Date();
+    }
+
+    public Matricula(Integer codAluno, Integer codCurso) {
+        
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    public Date getDataMatricula() {
+        return dataMatricula;
+    }
+
+    public void setDataMatricula(Date dataMatricula) {
+        this.dataMatricula = dataMatricula;
     }
 }
